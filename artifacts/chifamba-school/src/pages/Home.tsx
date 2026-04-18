@@ -26,9 +26,15 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white mb-6">
-              <Award size={18} className="text-accent" />
-              <span className="font-medium tracking-wide">3-Time Secretary's Bells Winner</span>
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                <Award size={18} className="text-accent" />
+                <span className="font-medium tracking-wide">3-Time Secretary's Bells Winner</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/90 text-primary font-semibold">
+                <BookOpen size={18} />
+                <span className="tracking-wide">Boarding &amp; Day School</span>
+              </div>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">

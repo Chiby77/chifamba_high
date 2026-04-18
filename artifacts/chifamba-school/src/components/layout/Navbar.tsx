@@ -17,6 +17,7 @@ export function Navbar() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHome = location === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,22 +27,26 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isTransparent = isHome && !scrolled;
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+        isTransparent
+          ? "bg-transparent"
+          : "bg-primary shadow-lg"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-primary text-white p-2 rounded-lg group-hover:scale-105 transition-transform">
+            <div className="bg-white/20 text-white p-2 rounded-lg group-hover:scale-105 transition-transform border border-white/30">
               <BookOpen size={24} />
             </div>
-            <div className={`flex flex-col ${scrolled ? "text-primary" : "text-white drop-shadow-md"}`}>
+            <div className="flex flex-col text-white">
               <span className="font-bold text-xl leading-tight">Chifamba</span>
-              <span className="text-xs font-medium tracking-wider">HIGH SCHOOL</span>
+              <span className="text-xs font-medium tracking-wider opacity-80">HIGH SCHOOL</span>
             </div>
           </Link>
 
@@ -55,7 +60,7 @@ export function Navbar() {
                   className={`text-sm font-medium transition-colors hover:text-accent ${
                     location === link.href
                       ? "text-accent font-semibold"
-                      : scrolled ? "text-gray-700" : "text-white drop-shadow-md"
+                      : "text-white/90"
                   }`}
                 >
                   {link.label}
@@ -71,7 +76,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden p-2 rounded-md ${scrolled ? "text-primary" : "text-white"}`}
+            className="md:hidden p-2 rounded-md text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
