@@ -1,0 +1,68 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "d44drmZul2siWP3ESu9At"
+uri = "file://artifacts/chifamba-school/public/images/hero.jpg"
+type = "image"
+title = "african high school students studying"
+
+[[outputs]]
+id = "DOO6zX7iQtvClfjb0RIk4"
+uri = "file://artifacts/chifamba-school/public/images/about.jpg"
+type = "image"
+title = "modern african school building"
+
+[[outputs]]
+id = "VgUw8b3GmrYlAAz1EYy36"
+uri = "file://artifacts/chifamba-school/public/images/farming.jpg"
+type = "image"
+title = "school farming agriculture"
+
+[[outputs]]
+id = "lqVD4NVnvs1xVTs2-b39A"
+uri = "file://artifacts/chifamba-school/public/images/practical.jpg"
+type = "image"
+title = "students practical project"
+
+[[outputs]]
+id = "Eu5mBYC8i2x3Lr_UYll1L"
+uri = "file://artifacts/chifamba-school/public/images/achievements.jpg"
+type = "image"
+title = "sports trophies"
+
+[[outputs]]
+id = "iW60arj2tIHLrUrzVRRdD"
+uri = "file://artifacts/chifamba-school/public/images/staff_1.jpg"
+type = "image"
+title = "african teachers staff room"
+
+[[outputs]]
+id = "qQDnK5EgmbbcZLY6D35vu"
+uri = "file://artifacts/chifamba-school/public/images/staff_2.jpg"
+type = "image"
+title = "african teachers staff room"
+
+[[outputs]]
+id = "w7Kedw1OSv6iyer_79gc7"
+uri = "file://artifacts/chifamba-school/public/images/staff_3.jpg"
+type = "image"
+title = "african teachers staff room"
+
+[[outputs]]
+id = "Y1VF8Q4YpF2DoLjsuJxZk"
+uri = "file://artifacts/chifamba-school/public/images/staff_4.jpg"
+type = "image"
+title = "african teachers staff room"
+
+[[outputs]]
+id = "-8FtHY9fg5Bzwyfud26YF"
+uri = "file://artifacts/chifamba-school/public/images/staff_5.jpg"
+type = "image"
+title = "african teachers staff room"
+
+[[outputs]]
+id = "CE0YirLgqxQDLa5jdEImv"
+uri = "file://artifacts/chifamba-school/public/images/staff_6.jpg"
+type = "image"
+title = "african teachers staff room"
