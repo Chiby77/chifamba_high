@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | Chifamba High School{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img 
+            src="{% static 'images/hero.jpg' %}" 
+            alt="Chifamba High School Students" 
+            class="w-full h-full object-cover object-center"
+        >
+        <div class="absolute inset-0 bg-[#003366]/70 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80"></div>
+    </div>
+
+    <div class="container relative z-10 mx-auto px-4 text-center">
+        <div class="max-w-4xl mx-auto animate-fade-in-up">
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-6">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                    <i data-lucide="award" class="text-[#f2a900]" size="18"></i>
+                    <span class="font-medium tracking-wide">3-Time Secretary's Bells Winner</span>
+                </div>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f2a900]/90 text-[#003366] font-semibold">
+                    <i data-lucide="book-open" size="18"></i>
+                    <span class="tracking-wide">Boarding & Day School</span>
+                </div>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+                Empowering the Future at <span class="text-[#f2a900]">Chifamba High</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-200 mb-10 font-light italic">
+                "Better build a child than repair a man."
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'about' %}" class="bg-[#f2a900] hover:bg-[#d49400] text-[#003366] text-lg px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
+                    Discover Our School
+                </a>
+                <a href="{% url 'portal' %}" class="bg-white/10 backdrop-blur-sm border border-white text-white hover:bg-white hover:text-[#003366] text-lg px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
+                    Student Portal
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="container mx-auto px-4 relative z-20 -mt-10">
+    <div class="bg-white py-12 rounded-2xl shadow-2xl">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="p-4">
+                <div class="text-4xl md:text-5xl font-bold text-[#003366] mb-2" data-count="756">756</div>
+                <p class="text-gray-600 font-medium font-poppins">Enrolled Learners</p>
+            </div>
+            <div class="p-4 border-l border-gray-100">
+                <div class="text-4xl md:text-5xl font-bold text-[#003366] mb-2" data-count="40">40+</div>
+                <p class="text-gray-600 font-medium font-poppins">Expert Teachers</p>
+            </div>
+            <div class="p-4 border-t md:border-t-0 md:border-l border-gray-100">
+                <div class="text-4xl md:text-5xl font-bold text-[#003366] mb-2">1984</div>
+                <p class="text-gray-600 font-medium font-poppins">Year Founded</p>
+            </div>
+            <div class="p-4 border-t md:border-t-0 md:border-l border-gray-100">
+                <div class="text-4xl md:text-5xl font-bold text-[#003366] mb-2">3</div>
+                <p class="text-gray-600 font-medium font-poppins">Secretary's Bells</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Preview -->
+<section class="py-24 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+            <div class="lg:w-1/2">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-[#003366]/10 rounded-2xl transform -rotate-3"></div>
+                    <img 
+                        src="{% static 'images/about.jpg' %}" 
+                        alt="Modern African School" 
+                        class="relative rounded-2xl shadow-2xl object-cover h-[500px] w-full"
+                    >
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl flex items-center gap-4">
+                        <div class="bg-[#f2a900]/20 p-4 rounded-full">
+                            <i data-lucide="trophy" class="text-[#f2a900]" size="32"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium">Recognized as</p>
+                            <p class="text-lg font-bold text-[#003366]">BUSE Friendly School</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2">
+                <h2 class="text-sm font-bold tracking-widest text-[#0055aa] uppercase mb-3">Welcome to Chifamba</h2>
+                <h3 class="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                    Academic Excellence Rooted in Zimbabwean Heritage
+                </h3>
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Located in the heart of Hama Village, Guruve, Chifamba High School is a premier boarding and day institution dedicated to nurturing the next generation of leaders. 
+                </p>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Since 1984, we have combined rigorous academic standards with practical skills development, ensuring our students are not just prepared for exams, but for life.
+                </p>
+                
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                    <li class="flex items-center gap-3">
+                        <div class="bg-[#003366]/10 p-1 rounded-full text-[#003366]">
+                            <i data-lucide="chevron-right" size="16"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">100 Boarding Places</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="bg-[#003366]/10 p-1 rounded-full text-[#003366]">
+                            <i data-lucide="chevron-right" size="16"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Comprehensive O & A Level</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="bg-[#003366]/10 p-1 rounded-full text-[#003366]">
+                            <i data-lucide="chevron-right" size="16"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Practical Projects</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="bg-[#003366]/10 p-1 rounded-full text-[#003366]">
+                            <i data-lucide="chevron-right" size="16"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Award-Winning Teams</span>
+                    </li>
+                </ul>
+                
+                <a href="{% url 'about' %}" class="inline-flex items-center bg-[#003366] hover:bg-[#002244] text-white rounded-full px-8 py-4 text-lg font-bold group transition-all">
+                    Read Our History
+                    <i data-lucide="chevron-right" class="ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Preview -->
+<section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-sm font-bold tracking-widest text-[#0055aa] uppercase mb-3 text-poppins">Hands-On Learning</h2>
+            <h3 class="text-4xl font-bold text-gray-900 mb-6">Practical Projects & Agriculture</h3>
+            <p class="text-lg text-gray-600">
+                We believe in education that goes beyond the classroom. Our students engage in real-world agricultural and technical projects.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="group rounded-2xl overflow-hidden relative h-[400px] shadow-lg cursor-pointer transition-transform hover:-translate-y-2">
+                <img src="{% static 'images/farming.jpg' %}" alt="Agriculture" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <h4 class="text-2xl font-bold text-white mb-2">Agriculture & Farming</h4>
+                    <p class="text-gray-200 mb-4 line-clamp-2">Our gardens teach sustainable farming practices vital for Zimbabwe's future.</p>
+                    <span class="text-[#f2a900] font-medium flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Explore Project <i data-lucide="chevron-right" size="18"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="group rounded-2xl overflow-hidden relative h-[400px] shadow-lg cursor-pointer transition-transform hover:-translate-y-2">
+                <img src="{% static 'images/practical.jpg' %}" alt="Technical Skills" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <h4 class="text-2xl font-bold text-white mb-2">Technical & Practical Skills</h4>
+                    <p class="text-gray-200 mb-4 line-clamp-2">From woodwork to metalwork, we equip students with tangible industry skills.</p>
+                    <span class="text-[#f2a900] font-medium flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Explore Project <i data-lucide="chevron-right" size="18"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="{% url 'projects' %}" class="inline-block rounded-full px-8 py-4 text-lg border-2 border-[#003366] text-[#003366] hover:bg-[#003366] hover:text-white transition-all font-bold">
+                View All Projects
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-24 relative overflow-hidden bg-[#003366]">
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+    <div class="container relative z-10 mx-auto px-4 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Join the Chifamba Family</h2>
+        <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+            Give your child the foundation they need to succeed. Enroll for the upcoming academic year today.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'contact' %}" class="bg-[#f2a900] hover:bg-[#d49400] text-[#003366] text-xl px-12 py-5 rounded-full font-bold transition-all shadow-xl">
+                Contact Admissions
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Counter Animation
+    const counters = document.querySelectorAll('[data-count]');
+    const speed = 200;
+
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-count');
+            const count = +counter.innerText.replace('+', '');
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc) + (counter.innerText.includes('+') ? '+' : '');
+                setTimeout(animateCounters, 1);
+            } else {
+                counter.innerText = target + (counter.innerText.includes('+') ? '+' : '');
+            }
+        });
+    };
+
+    // Intersection Observer for counters
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 1 });
+
+    document.querySelectorAll('.bg-white.py-12').forEach(el => observer.observe(el));
+</script>
+{% endblock %}

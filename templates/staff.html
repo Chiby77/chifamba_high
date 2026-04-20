@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Faculty | Chifamba High School{% endblock %}
+
+{% block content %}
+<div class="pt-20 min-h-screen bg-gray-50">
+    <!-- Header -->
+    <section class="bg-[#003366] text-white py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 animate-fade-in">Our Faculty</h1>
+            <p class="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
+                Meet the 40+ dedicated professionals shaping the minds of tomorrow.
+            </p>
+        </div>
+    </section>
+
+    <!-- Staff List -->
+    <section class="py-24">
+        <div class="container mx-auto px-4">
+            
+            <!-- Administration -->
+            <div class="mb-24">
+                <h2 class="text-3xl font-bold text-[#003366] mb-12 border-b-4 border-[#f2a900] inline-block pb-2 animate-fade-in-left">
+                    Administration
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl group hover:-translate-y-3 transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="{% static 'images/staff_1.jpg' %}" alt="Mr. T. Mukanya" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#003366]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <span class="text-white font-bold tracking-wider">LEADERSHIP</span>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center bg-white">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Mr. T. Mukanya</h3>
+                            <p class="text-[#0055aa] font-bold text-lg">Headmaster</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl group hover:-translate-y-3 transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="{% static 'images/staff_2.jpg' %}" alt="Mrs. S. Dube" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#003366]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <span class="text-white font-bold tracking-wider">ADMINISTRATION</span>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center bg-white">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Mrs. S. Dube</h3>
+                            <p class="text-[#0055aa] font-bold text-lg">Deputy Head</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sciences & Mathematics -->
+            <div class="mb-24">
+                <h2 class="text-3xl font-bold text-[#003366] mb-12 border-b-4 border-[#f2a900] inline-block pb-2 animate-fade-in-left">
+                    Sciences & Mathematics
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl group hover:-translate-y-3 transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="{% static 'images/staff_3.jpg' %}" alt="Mr. K. Moyo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#003366]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <span class="text-white font-bold tracking-wider">SCIENCES</span>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center bg-white">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Mr. K. Moyo</h3>
+                            <p class="text-[#0055aa] font-bold text-lg">HOD Sciences</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl group hover:-translate-y-3 transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="{% static 'images/staff_4.jpg' %}" alt="Ms. R. Ndlovu" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#003366]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <span class="text-white font-bold tracking-wider">MATHEMATICS</span>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center bg-white">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Ms. R. Ndlovu</h3>
+                            <p class="text-[#0055aa] font-bold text-lg">Mathematics Teacher</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl group hover:-translate-y-3 transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="{% static 'images/staff_5.jpg' %}" alt="Mr. J. Sibanda" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#003366]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <span class="text-white font-bold tracking-wider">PHYSICS</span>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center bg-white">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Mr. J. Sibanda</h3>
+                            <p class="text-[#0055aa] font-bold text-lg">Physics Teacher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Humanities & Languages -->
+            <div class="mb-24">
+                <h2 class="text-3xl font-bold text-[#003366] mb-12 border-b-4 border-[#f2a900] inline-block pb-2 animate-fade-in-left">
+                    Humanities & Languages
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl group hover:-translate-y-3 transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="{% static 'images/staff_6.jpg' %}" alt="Mrs. C. Chigumba" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#003366]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <span class="text-white font-bold tracking-wider">LANGUAGES</span>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center bg-white">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Mrs. C. Chigumba</h3>
+                            <p class="text-[#0055aa] font-bold text-lg">HOD Languages</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl group hover:-translate-y-3 transition-all duration-500">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="{% static 'images/staff_1.jpg' %}" alt="Mr. P. Zhou" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#003366]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                <span class="text-white font-bold tracking-wider">HISTORY</span>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center bg-white">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Mr. P. Zhou</h3>
+                            <p class="text-[#0055aa] font-bold text-lg">History Teacher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+    
+    .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+    .animate-fade-in-left { animation: fadeInLeft 1s ease-out forwards; }
+</style>
+{% endblock %}

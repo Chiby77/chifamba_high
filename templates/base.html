@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Chifamba High School{% endblock %}</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS (Tailwind CDN for strictly Django architecture) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'hsl(210, 100%, 20%)',
+                        secondary: 'hsl(210, 100%, 33%)',
+                        accent: 'hsl(42, 87%, 55%)',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --background: 210 20% 98%;
+            --foreground: 210 100% 20%;
+            --primary: 210 100% 20%;
+            --primary-foreground: 0 0% 100%;
+            --secondary: 210 100% 33%;
+            --secondary-foreground: 0 0% 100%;
+            --accent: 42 87% 55%;
+            --accent-foreground: 210 100% 20%;
+            --border: 210 20% 90%;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .nav-transparent {
+            background-color: transparent;
+        }
+
+        .nav-scrolled {
+            background-color: hsl(210, 100%, 20%);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body class="bg-[#f8f9fa] text-[#003366] overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-300 nav-transparent">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="/" class="flex items-center gap-2 group">
+                    <div
+                        class="bg-white/20 text-white p-2 rounded-lg group-hover:scale-105 transition-transform border border-white/30">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <div class="flex flex-col text-white">
+                        <span class="font-bold text-xl leading-tight">Chifamba</span>
+                        <span class="text-xs font-medium tracking-wider opacity-80 uppercase">High School</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <div class="flex gap-6">
+                        <a href="{% url 'home' %}"
+                            class="text-sm font-medium transition-colors hover:text-[#f2a900] {% if request.resolver_match.url_name == 'home' %}text-[#f2a900] font-semibold{% else %}text-white/90{% endif %}">Home</a>
+                        <a href="{% url 'about' %}"
+                            class="text-sm font-medium transition-colors hover:text-[#f2a900] {% if request.resolver_match.url_name == 'about' %}text-[#f2a900] font-semibold{% else %}text-white/90{% endif %}">About</a>
+                        <a href="{% url 'academics' %}"
+                            class="text-sm font-medium transition-colors hover:text-[#f2a900] {% if request.resolver_match.url_name == 'academics' %}text-[#f2a900] font-semibold{% else %}text-white/90{% endif %}">Academics</a>
+                        <a href="{% url 'projects' %}"
+                            class="text-sm font-medium transition-colors hover:text-[#f2a900] {% if request.resolver_match.url_name == 'projects' %}text-[#f2a900] font-semibold{% else %}text-white/90{% endif %}">Projects</a>
+                        <a href="{% url 'achievements' %}"
+                            class="text-sm font-medium transition-colors hover:text-[#f2a900] {% if request.resolver_match.url_name == 'achievements' %}text-[#f2a900] font-semibold{% else %}text-white/90{% endif %}">Achievements</a>
+                        <a href="{% url 'staff' %}"
+                            class="text-sm font-medium transition-colors hover:text-[#f2a900] {% if request.resolver_match.url_name == 'staff' %}text-[#f2a900] font-semibold{% else %}text-white/90{% endif %}">Staff</a>
+                        <a href="{% url 'contact' %}"
+                            class="text-sm font-medium transition-colors hover:text-[#f2a900] {% if request.resolver_match.url_name == 'contact' %}text-[#f2a900] font-semibold{% else %}text-white/90{% endif %}">Contact</a>
+                    </div>
+                    <a href="{% url 'portal' %}"
+                        class="bg-[#f2a900] hover:bg-[#d49400] text-[#003366] font-semibold px-4 py-2 rounded-md transition-colors">
+                        Portal Login
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white focus:outline-none">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                    <i data-lucide="x" id="close-icon" class="hidden"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl absolute top-20 left-0 w-full border-t">
+            <div class="flex flex-col p-4 gap-4">
+                <a href="{% url 'home' %}"
+                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Home</a>
+                <a href="{% url 'about' %}"
+                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">About</a>
+                <a href="{% url 'academics' %}"
+                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Academics</a>
+                <a href="{% url 'projects' %}"
+                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Projects</a>
+                <a href="{% url 'achievements' %}"
+                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Achievements</a>
+                <a href="{% url 'staff' %}"
+                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Staff</a>
+                <a href="{% url 'contact' %}"
+                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Contact</a>
+                <a href="{% url 'portal' %}"
+                    class="w-full bg-[#003366] hover:bg-[#002244] text-white mt-4 text-center py-3 rounded-md font-semibold">
+                    Portal Login
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#003366] text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="bg-white/10 p-2 rounded-lg">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <span class="font-bold text-2xl">Chifamba</span>
+                    </div>
+                    <p class="text-blue-100 mb-6 leading-relaxed">
+                        Nurturing excellence and integrity since 1984. Empowering the next generation of leaders in
+                        Guruve.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="bg-white/10 p-2 rounded-full hover:bg-[#f2a900] hover:text-[#003366] transition-all">
+                            <i data-lucide="facebook" size="20"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-white/10 p-2 rounded-full hover:bg-[#f2a900] hover:text-[#003366] transition-all">
+                            <i data-lucide="twitter" size="20"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-white/10 p-2 rounded-full hover:bg-[#f2a900] hover:text-[#003366] transition-all">
+                            <i data-lucide="instagram" size="20"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-[#f2a900]">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="/about" class="text-blue-100 hover:text-white transition-colors">Our History</a>
+                        </li>
+                        <li><a href="/academics" class="text-blue-100 hover:text-white transition-colors">Curriculum</a>
+                        </li>
+                        <li><a href="/projects" class="text-blue-100 hover:text-white transition-colors">Practical
+                                Projects</a></li>
+                        <li><a href="/contact" class="text-blue-100 hover:text-white transition-colors">Admissions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-[#f2a900]">Resources</h4>
+                    <ul class="space-y-4">
+                        <li><a href="/portal" class="text-blue-100 hover:text-white transition-colors">Student
+                                Portal</a></li>
+                        <li><a href="/staff" class="text-blue-100 hover:text-white transition-colors">Staff
+                                Directory</a></li>
+                        <li><a href="/achievements" class="text-blue-100 hover:text-white transition-colors">Gallery</a>
+                        </li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition-colors">School Calendar</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-[#f2a900]">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-[#f2a900] shrink-0 mt-1"></i>
+                            <span class="text-blue-100">Hama Village, Guruve, Mashonaland Central, Zimbabwe</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-[#f2a900] shrink-0"></i>
+                            <span class="text-blue-100">+263 7xx xxx xxx</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="text-[#f2a900] shrink-0"></i>
+                            <span class="text-blue-100">info@chifambaschool.ac.zw</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/10 mt-16 pt-8 flex flex-col md:row justify-between items-center gap-4 text-sm text-blue-200">
+                <p>© 2026 Chifamba High School. All rights reserved. Developed by <a
+                        href="https://bluewavetechnologies.netlify.app">BlueWave Technologies Pvt Ltd</a></p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const nav = document.getElementById('main-nav');
+        const isHome = window.location.pathname === '/';
+
+        function handleScroll() {
+            if (window.scrollY > 20 || !isHome) {
+                nav.classList.remove('nav-transparent');
+                nav.classList.add('nav-scrolled', 'shadow-lg');
+            } else {
+                nav.classList.add('nav-transparent');
+                nav.classList.remove('nav-scrolled', 'shadow-lg');
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        menuButton.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            } else {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            }
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>
