@@ -4,63 +4,63 @@
 {% block title %}Portal Login | Chifamba High School{% endblock %}
 
 {% block content %}
-<div class="min-h-screen bg-gray-50 flex items-center justify-center py-32 px-4 relative overflow-hidden">
+<div class="min-h-screen bg-gray-50 flex items-center justify-center py-20 md:py-32 px-4 relative overflow-hidden">
     <!-- Background Accents -->
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-[#003366]/5 rounded-full blur-3xl"></div>
     <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-[#f2a900]/5 rounded-full blur-3xl"></div>
 
     <div class="max-w-md w-full animate-fade-in-scale relative z-10">
         <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-gray-100">
-            <div class="bg-[#003366] p-12 text-center text-white relative">
+            <div class="bg-[#003366] p-8 md:p-12 text-center text-white relative">
                 <div class="absolute inset-0 bg-white/5 pointer-events-none"></div>
-                <div class="bg-white/10 w-24 h-24 rounded-3xl flex items-center justify-center mx-auto mb-6 backdrop-blur-md border border-white/20 transform -rotate-6 group hover:rotate-0 transition-transform duration-500">
-                    <i data-lucide="lock" size="48" class="text-[#f2a900]"></i>
+                <div class="bg-white/10 w-20 h-20 md:w-24 md:h-24 rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6 backdrop-blur-md border border-white/20 transform -rotate-6 group hover:rotate-0 transition-transform duration-500">
+                    <i data-lucide="lock" size="40" class="text-[#f2a900] md:w-[48px] md:h-[48px]"></i>
                 </div>
-                <h1 class="text-4xl font-extrabold mb-2 tracking-tight">Portal Login</h1>
-                <p class="text-blue-100 text-lg font-medium opacity-80 italic">Chifamba High School</p>
+                <h1 class="text-3xl md:text-4xl font-extrabold mb-2 tracking-tight">Portal Login</h1>
+                <p class="text-blue-100 text-base md:text-lg font-medium opacity-80 italic">Chifamba High School</p>
             </div>
 
-            <div class="p-12">
-                <form class="space-y-8" method="POST">
+            <div class="p-8 md:p-12">
+                <form class="space-y-6 md:space-y-8" method="POST">
                     {% csrf_token %}
-                    <div class="space-y-3">
-                        <label class="text-sm font-bold text-gray-700 uppercase tracking-widest ml-1">Student/Staff ID</label>
+                    <div class="space-y-2 md:space-y-3">
+                        <label class="text-xs md:text-sm font-bold text-gray-700 uppercase tracking-widest ml-1">Student/Staff ID</label>
                         <div class="relative group">
                             <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-[#003366] transition-colors">
-                                <i data-lucide="user" class="h-6 w-6"></i>
+                                <i data-lucide="user" class="h-5 w-5 md:h-6 md:w-6"></i>
                             </div>
                             <input 
                                 type="text" 
                                 name="username"
                                 placeholder="Enter your ID" 
-                                class="w-full pl-14 pr-4 py-5 bg-gray-50 border-0 rounded-2xl focus:ring-4 focus:ring-[#003366]/10 transition-all text-lg font-medium"
+                                class="w-full pl-12 md:pl-14 pr-4 py-4 md:py-5 bg-gray-50 border-0 rounded-2xl focus:ring-4 focus:ring-[#003366]/10 transition-all text-base md:text-lg font-medium"
                                 required
                             >
                         </div>
                     </div>
 
-                    <div class="space-y-3">
+                    <div class="space-y-2 md:space-y-3">
                         <div class="flex justify-between items-center px-1">
-                            <label class="text-sm font-bold text-gray-700 uppercase tracking-widest">Password</label>
-                            <a href="#" class="text-sm text-[#0055aa] hover:text-[#003366] font-bold transition-colors">Forgot?</a>
+                            <label class="text-xs md:text-sm font-bold text-gray-700 uppercase tracking-widest">Password</label>
+                            <a href="#" class="text-xs md:text-sm text-[#0055aa] hover:text-[#003366] font-bold transition-colors">Forgot?</a>
                         </div>
                         <div class="relative group">
                             <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-[#003366] transition-colors">
-                                <i data-lucide="key-round" class="h-6 w-6"></i>
+                                <i data-lucide="key-round" class="h-5 w-5 md:h-6 md:w-6"></i>
                             </div>
                             <input 
                                 type="password" 
                                 name="password"
                                 placeholder="Enter your password" 
-                                class="w-full pl-14 pr-4 py-5 bg-gray-50 border-0 rounded-2xl focus:ring-4 focus:ring-[#003366]/10 transition-all text-lg font-medium"
+                                class="w-full pl-12 md:pl-14 pr-4 py-4 md:py-5 bg-gray-50 border-0 rounded-2xl focus:ring-4 focus:ring-[#003366]/10 transition-all text-base md:text-lg font-medium"
                                 required
                             >
                         </div>
                     </div>
 
-                    <div class="pt-4">
-                        <button type="submit" class="w-full bg-[#f2a900] hover:bg-[#d49400] text-[#003366] py-5 text-xl font-black rounded-2xl shadow-[0_10px_20px_-10px_rgba(242,169,0,0.5)] transition-all transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3">
-                            <i data-lucide="log-in" class="w-6 h-6"></i> Sign In
+                    <div class="pt-2 md:pt-4">
+                        <button type="submit" class="w-full bg-[#f2a900] hover:bg-[#d49400] text-[#003366] py-4 md:py-5 text-lg md:text-xl font-black rounded-2xl shadow-[0_10px_20px_-10px_rgba(242,169,0,0.5)] transition-all transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3">
+                            <i data-lucide="log-in" class="w-5 h-5 md:w-6 md:h-6"></i> Sign In
                         </button>
                     </div>
                 </form>
@@ -74,13 +74,13 @@
         </div>
         
         <!-- Quick Stats/Info below login -->
-        <div class="mt-8 flex justify-center gap-6 text-gray-400 text-sm font-bold uppercase tracking-widest">
+        <div class="mt-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-gray-400 text-xs md:text-sm font-bold uppercase tracking-widest text-center">
             <span class="flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-green-500"></div> System Online
             </span>
-            <span>•</span>
+            <span class="hidden md:inline text-gray-300">•</span>
             <span class="flex items-center gap-2">
-                <i data-lucide="shield-check" size="16"></i> Secure Access
+                <i data-lucide="shield-check" class="w-4 h-4 md:w-5 md:h-5"></i> Secure Access
             </span>
         </div>
     </div>

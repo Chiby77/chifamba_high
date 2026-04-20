@@ -109,34 +109,57 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white focus:outline-none">
-                    <i data-lucide="menu" id="menu-icon"></i>
-                    <i data-lucide="x" id="close-icon" class="hidden"></i>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors focus:outline-none">
+                    <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
+                    <i data-lucide="x" id="close-icon" class="w-7 h-7 hidden"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Nav -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl absolute top-20 left-0 w-full border-t">
-            <div class="flex flex-col p-4 gap-4">
-                <a href="{% url 'home' %}"
-                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Home</a>
-                <a href="{% url 'about' %}"
-                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">About</a>
-                <a href="{% url 'academics' %}"
-                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Academics</a>
-                <a href="{% url 'projects' %}"
-                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Projects</a>
-                <a href="{% url 'achievements' %}"
-                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Achievements</a>
-                <a href="{% url 'staff' %}"
-                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Staff</a>
-                <a href="{% url 'contact' %}"
-                    class="text-lg font-medium p-2 rounded-md hover:bg-gray-50 text-gray-700">Contact</a>
-                <a href="{% url 'portal' %}"
-                    class="w-full bg-[#003366] hover:bg-[#002244] text-white mt-4 text-center py-3 rounded-md font-semibold">
-                    Portal Login
-                </a>
+        <!-- Mobile Nav Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 z-40 md:hidden hidden">
+            <div class="absolute inset-0 bg-[#003366]/60 backdrop-blur-sm"></div>
+            <div class="absolute right-0 top-0 h-screen w-4/5 max-w-sm bg-white shadow-2xl transition-transform duration-300 translate-x-full" id="mobile-menu-content">
+                <div class="flex flex-col h-full bg-white">
+                    <div class="p-6 border-b flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-[#003366] text-white p-2 rounded-lg">
+                                <i data-lucide="book-open"></i>
+                            </div>
+                            <span class="font-bold text-xl text-[#003366]">Chifamba</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 overflow-y-auto py-8 px-6">
+                        <nav class="flex flex-col gap-4">
+                            <a href="{% url 'home' %}" class="flex items-center gap-4 text-xl font-medium p-3 rounded-xl hover:bg-gray-50 text-gray-700 transition-colors">
+                                <i data-lucide="home" class="w-5 h-5 opacity-60"></i> Home
+                            </a>
+                            <a href="{% url 'about' %}" class="flex items-center gap-4 text-xl font-medium p-3 rounded-xl hover:bg-gray-50 text-gray-700 transition-colors">
+                                <i data-lucide="info" class="w-5 h-5 opacity-60"></i> About
+                            </a>
+                            <a href="{% url 'academics' %}" class="flex items-center gap-4 text-xl font-medium p-3 rounded-xl hover:bg-gray-50 text-gray-700 transition-colors">
+                                <i data-lucide="graduation-cap" class="w-5 h-5 opacity-60"></i> Academics
+                            </a>
+                            <a href="{% url 'projects' %}" class="flex items-center gap-4 text-xl font-medium p-3 rounded-xl hover:bg-gray-50 text-gray-700 transition-colors">
+                                <i data-lucide="briefcase" class="w-5 h-5 opacity-60"></i> Projects
+                            </a>
+                            <a href="{% url 'achievements' %}" class="flex items-center gap-4 text-xl font-medium p-3 rounded-xl hover:bg-gray-50 text-gray-700 transition-colors">
+                                <i data-lucide="award" class="w-5 h-5 opacity-60"></i> Achievements
+                            </a>
+                            <a href="{% url 'staff' %}" class="flex items-center gap-4 text-xl font-medium p-3 rounded-xl hover:bg-gray-50 text-gray-700 transition-colors">
+                                <i data-lucide="users" class="w-5 h-5 opacity-60"></i> Staff
+                            </a>
+                            <a href="{% url 'contact' %}" class="flex items-center gap-4 text-xl font-medium p-3 rounded-xl hover:bg-gray-50 text-gray-700 transition-colors">
+                                <i data-lucide="phone" class="w-5 h-5 opacity-60"></i> Contact
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="p-6 border-t mt-auto">
+                        <a href="{% url 'portal' %}" class="w-full inline-flex items-center justify-center gap-3 bg-[#f2a900] text-[#003366] py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-[#d49400] transition-colors">
+                            <i data-lucide="log-in" class="w-5 h-5"></i> Portal Login
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -225,12 +248,12 @@
             </div>
 
             <div
-                class="border-t border-white/10 mt-16 pt-8 flex flex-col md:row justify-between items-center gap-4 text-sm text-blue-200">
-                <p>© 2026 Chifamba High School. All rights reserved. Developed by <a
-                        href="https://bluewavetechnologies.netlify.app">BlueWave Technologies Pvt Ltd</a></p>
+                class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-blue-200 text-center md:text-left">
+                <p>© 2026 Chifamba High School. All rights reserved. <br class="md:hidden"> Developed by <a
+                        href="https://bluewavetechnologies.netlify.app" class="text-white hover:underline">BlueWave Technologies Pvt Ltd</a></p>
                 <div class="flex gap-8">
-                    <a href="#" class="hover:text-white">Privacy Policy</a>
-                    <a href="#" class="hover:text-white">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -261,19 +284,35 @@
         // Mobile Menu Toggle
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuContent = document.getElementById('mobile-menu-content');
         const menuIcon = document.getElementById('menu-icon');
         const closeIcon = document.getElementById('close-icon');
 
-        menuButton.addEventListener('click', () => {
-            const isOpen = !mobileMenu.classList.contains('hidden');
-            if (isOpen) {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
-            } else {
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
                 mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenuContent.classList.remove('translate-x-full');
+                }, 10);
                 menuIcon.classList.add('hidden');
                 closeIcon.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenuContent.classList.add('translate-x-full');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu || e.target.closest('.absolute.inset-0')) {
+                toggleMenu();
             }
         });
     </script>
